@@ -10,7 +10,7 @@ body {
     color: #243A5E;
 }
 
-/* Sidebar */
+
 .sidebar {
     position: fixed;
     left: 0;
@@ -122,13 +122,11 @@ body {
     background: #EDF4FA;
 }
 
-/* Main Content */
 .main-content {
     margin-left: 280px;
     padding: 30px;
 }
 
-/* Header */
 .header {
     background: white;
     padding: 25px 30px;
@@ -191,7 +189,6 @@ body {
     color: #8FB6D8;
 }
 
-/* Wellness Stats */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -264,7 +261,6 @@ body {
     font-weight: 500;
 }
 
-/* Feature Cards */
 .section-title {
     font-size: 22px;
     color: #243A5E;
@@ -378,7 +374,6 @@ body {
     gap: 8px;
 }
 
-/* Quick Actions */
 .quick-actions {
     background: white;
     border-radius: 15px;
@@ -432,7 +427,6 @@ body {
     box-shadow: 0 4px 15px rgba(143, 182, 216, 0.2);
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .sidebar {
         width: 240px;
