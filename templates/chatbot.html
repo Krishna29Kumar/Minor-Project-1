@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>InnerVoice Chat</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, sans-serif;
+            background: linear-gradient(135deg, #833ab4, #17b4e0, #fcb045);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 400px;
+            height: 700px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(45deg, #833ab4, #1f8ee9, #fcb045);
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f7f9fc;
+        }
+
+        .message-row {
+            display: flex;
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .user {
+            justify-content: flex-end;
+        }
+
+        .bot {
+            justify-content: flex-start;
+        }
+
+        .bubble {
+            max-width: 70%;
+            padding: 10px 14px;
+            border-radius: 18px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .user .bubble {
+            background: #5F86A6;
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+        }
+
+        .bot .bubble {
+            background: #e4e6eb;
+            border-radius: 18px 18px 18px 4px;
+        }
+
+        .timestamp {
+            font-size: 10px;
+            margin-top: 4px;
+            opacity: 0.6;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin: 0 8px;
+        }
+
+        .user .icon {
+            order: 2;
+        }
+
+        .input-area {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: white;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .input-area button {
+            margin-left: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            background: #5F86A6;
+            color: white;
+            cursor: pointer;
+        }
+
+        .typing {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-left: 40px;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+
+    <div class="header">InnerVoice AI Support</div>
+
+    <div class="chat-box" id="chat-box"></div>
+
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script>
+const input = document.getElementById("user-input");
+const chatBox = document.getElementById("chat-box");
+
+// Enter key support
+input.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
+
+function getTime() {
+    const now = new Date();
+    return now.getHours() + ":" + String(now.getMinutes()).padStart(2, '0');
+}
+
+function sendMessage() {
+    const userMessage = input.value.trim();
+    if (!userMessage) return;
+
+    addMessage(userMessage, "user");
+    input.value = "";
+
+    // Typing animation
+    const typingDiv = document.createElement("div");
+    typingDiv.className = "typing";
+    typingDiv.id = "typing";
+    typingDiv.innerText = "AI is typing...";
+    chatBox.appendChild(typingDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: userMessage})
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("typing").remove();
+        addMessage(data.reply, "bot");
+    });
+}
+
+function addMessage(text, sender) {
+    const row = document.createElement("div");
+    row.className = "message-row " + sender;
+
+    const icon = document.createElement("img");
+    icon.className = "icon";
+    icon.src = sender === "user"
+        ? "https://cdn-icons-png.flaticon.com/512/847/847969.png"
+        : "https://cdn-icons-png.flaticon.com/512/4712/4712027.png";
+
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.innerHTML = text + `<div class="timestamp">${getTime()}</div>`;
+
+    if (sender === "user") {
+        row.appendChild(bubble);
+        row.appendChild(icon);
+    } else {
+        row.appendChild(icon);
+        row.appendChild(bubble);
+    }
+
+    chatBox.appendChild(row);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+</script>
+
+</body>
+</html>

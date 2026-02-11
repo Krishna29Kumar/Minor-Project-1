@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerVoice - Your Wellness Centre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🧠</div>
+            <h1>InnerVoice</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#dashboard" class="nav-link active">
+                        <span class="nav-icon">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/chatbot" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        <span>AI Chatbot</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#progress" class="nav-link">
+                        <span class="nav-icon">📈</span>
+                        <span>Progress Report</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#wellbeing" class="nav-link">
+                        <span class="nav-icon">🌱</span>
+                        <span>Personal Wellbeing</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#psychiatrist" class="nav-link">
+                        <span class="nav-icon">👨‍⚕️</span>
+                        <span>Connect Psychiatrist</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#volunteering" class="nav-link">
+                        <span class="nav-icon">🤝</span>
+                        <span>Volunteering</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#quiz" class="nav-link">
+                        <span class="nav-icon">📝</span>
+                        <span>Mental Health Quiz</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resources" class="nav-link">
+                        <span class="nav-icon">📚</span>
+                        <span>Resources & Shop</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <span class="nav-icon">ℹ️</span>
+                        <span>About Us</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        
+        <header class="header">
+            <div class="welcome">
+                <h2>Welcome!</h2>
+                <p>Take a moment to breathe and explore your wellness tools below</p>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">U</div>
+                <div class="user-info">
+                    <h4 id="user-name">User</h4>
+                    <p>Student Member</p>
+                </div>
+            </div>
+
+            <button onclick="logout()" style="padding:8px 15px;border:none;border-radius:8px;background:#5F86A6;color:white;cursor:pointer;">
+                Logout
+            </button>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Days Streak</div>
+                    </div>
+                    <div class="stat-icon blue">🔥</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">Number</div>
+                        <div class="stat-label">Sessions Completed</div>
+                    </div>
+                    <div class="stat-icon green">✅</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">XYZ</div>
+                        <div class="stat-label">Wellness Score</div>
+                    </div>
+                    <div class="stat-icon purple">💜</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">Hours</div>
+                        <div class="stat-label">Time Invested</div>
+                    </div>
+                    <div class="stat-icon pink">⏱️</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-title">Your Wellness Tools</h3>
+        <div class="features-grid">
+            <a href="/chatbot" class="feature-card">
+                <div class="feature-icon gradient-1">💬</div>
+                <h3>AI Wellness Chatbot</h3>
+                <p>Talk to our empathetic AI companion available 24/7. Get instant support, coping strategies, and a listening ear whenever you need it!</p>
+                <span class="feature-action">Start Conversation →</span>
+            </a>
+
+            <a href="#progress" class="feature-card">
+                <div class="feature-icon gradient-2">📈</div>
+                <h3>Progress Tracking</h3>
+                <p>Track and visualize your mental health journey with detailed reports, mood patterns, and improvement analytics over time.</p>
+                <span class="feature-action">View Progress →</span>
+            </a>
+
+            <a href="#wellbeing" class="feature-card">
+                <div class="feature-icon gradient-3">🌱</div>
+                <h3>Personal Wellbeing</h3>
+                <p>Access guided meditations, breathing exercises, journaling prompts, and daily wellness activities tailored to you.</p>
+                <span class="feature-action">Explore Activities →</span>
+            </a>
+
+            <a href="#psychiatrist" class="feature-card">
+                <div class="feature-icon gradient-4">👨‍⚕️</div>
+                <h3>Connect with Professionals</h3>
+                <p>Schedule sessions with licensed psychiatrists and therapists. Get professional help when you need it most.</p>
+                <span class="feature-action">Find Psychiatrist →</span>
+            </a>
+
+            <a href="#volunteering" class="feature-card">
+                <div class="feature-icon gradient-5">🤝</div>
+                <h3>Peer Support & Volunteering</h3>
+                <p>Join support groups, connect with peers, or volunteer to help others. Building community strengthens mental health.</p>
+                <span class="feature-action">Join Community →</span>
+            </a>
+
+            <a href="#quiz" class="feature-card">
+                <div class="feature-icon gradient-6">📝</div>
+                <h3>Mental Health Assessment</h3>
+                <p>Take quizzes to understand your mental health better and get personalized recommendations.</p>
+                <span class="feature-action">Take Quiz →</span>
+            </a>
+        </div>
+
+        <div class="quick-actions">
+            <h3 class="section-title">Quick Actions</h3>
+            <div class="action-buttons">
+                <a href="#resources" class="action-btn secondary">📚 Browse Resources</a>
+                <a href="#about" class="action-btn secondary">ℹ️ About MindCare</a>
+                <a href="#settings" class="action-btn secondary">⚙️ Settings</a>
+            </div>
+        </div>
+    </main>
+
+<script>
+    const userName = localStorage.getItem("userName");
+
+    if(userName){
+        document.getElementById("user-name").innerText = userName;
+        document.querySelector(".avatar").innerText = userName.charAt(0).toUpperCase();
+    } else {
+        window.location.href = "login.html";
+    }
+
+    function logout(){
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userPassword");
+        window.location.href = "login.html";
+    }
+
+    function logout(){
+        localStorage.clear();
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
