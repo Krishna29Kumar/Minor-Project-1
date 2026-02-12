@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellbeing - InnerVoice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='wellbeing.css') }}">
+</head>
+<body>
+    <div class="wellbeing-container">
+        <header class="wb-header">
+            <a href="/dashboard" class="back-btn">← Back to Dashboard</a>
+            <h1>Wellbeing Sanctuary</h1>
+            <p>Your space for peace, growth, and self-discovery.</p>
+        </header>
+
+        <section class="wb-card mood-check">
+            <h3>How are you feeling right now?</h3>
+            <input type="range" min="1" max="5" value="3" class="mood-slider" id="moodSlider" style="width:100%; margin: 20px 0;">
+            <div style="display: flex; justify-content: space-between; font-size: 24px; margin-bottom: 10px;">
+                <span>😰</span><span>😔</span><span>😐</span><span>😊</span><span>😄</span>
+            </div>
+            <p id="mood-feedback" style="font-weight: 600; color: #5F86A6;">Move the slider to check in.</p>
+        </section>
+
+        <div class="wb-grid">
+            <div class="wb-card">
+                <h3>🌿 Guided Meditations</h3>
+                <div class="wb-list">
+                    <button class="wb-item">🧘 5-Min Quick Calm</button>
+                    <button class="wb-item">🌙 Sleep Meditation</button>
+                    <button class="wb-item">🛡️ Anxiety Relief</button>
+                </div>
+            </div>
+
+            <div class="wb-card">
+                <h3>🌬️ Breathing Exercises</h3>
+                <div class="breathing-circle-container">
+                    <div class="breathing-circle" id="breathCircle"></div>
+                    <p id="breathText">Press a button to start</p>
+                </div>
+                <div class="wb-list">
+                    <button class="wb-item" onclick="startBreathing()">🔲 Box Breathing</button>
+                    <button class="wb-item" onclick="startBreathing()">🌬️ 4-7-8 Technique</button>
+                </div>
+            </div>
+
+            <div class="wb-card">
+                <h3>📓 Smart Journaling</h3>
+                <textarea class="wb-textarea" placeholder="What's on your mind?"></textarea>
+                <div class="wb-list">
+                    <button class="wb-item">✨ Daily Gratitude</button>
+                    <button class="wb-item">🩹 Healing Prompts</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startBreathing() {
+            const circle = document.getElementById('breathCircle');
+            const text = document.getElementById('breathText');
+            circle.style.animation = "breathe 8s infinite ease-in-out";
+            text.innerText = "Breathe in... and out...";
+        }
+
+        const slider = document.getElementById('moodSlider');
+        const feedback = document.getElementById('mood-feedback');
+        const responses = [
+            "Take it slow today. We're here for you.",
+            "It's okay to feel down. Try a breathing exercise.",
+            "Balanced and steady. Keep going!",
+            "You're doing great! Keep that smile.",
+            "Fantastic! Share your positive energy today!"
+        ];
+        slider.oninput = function() { feedback.innerText = responses[this.value - 1]; };
+    </script>
+</body>
+</html>

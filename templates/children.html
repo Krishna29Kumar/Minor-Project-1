@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InnerVoice – Emotional & Well-Being Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='children.css') }}">
+</head>
+<body>
+
+<div class="quiz-wrapper">
+<div class="quiz-card">
+
+<h2>InnerVoice – Emotional & Well-Being Check</h2>
+<p class="subtitle">This is anonymous. Answer honestly.</p>
+
+<form action="/submit_quiz" method="POST">
+
+<!-- 1 -->
+<div class="question">
+<p><strong>1.</strong> Have you spoken to a counsellor before?</p>
+<label><input type="radio" name="q1" value="Yes" required> Yes</label>
+<label><input type="radio" name="q1" value="No"> No</label>
+</div>
+
+<!-- 2 -->
+<div class="question">
+<p><strong>2.</strong> Do school or college responsibilities feel overwhelming at times?</p>
+<label><input type="radio" name="q2" value="Almost Always" required> Almost Always</label>
+<label><input type="radio" name="q2" value="Rarely"> Rarely</label>
+<label><input type="radio" name="q2" value="Sometimes"> Sometimes</label>
+<label><input type="radio" name="q2" value="Often"> Often</label>
+</div>
+
+<!-- 3 -->
+<div class="question">
+<p><strong>3.</strong> What part of academics feels hardest right now?</p>
+<label><input type="checkbox" name="q3" value="Exams"> Exams</label>
+<label><input type="checkbox" name="q3" value="Time management"> Time management</label>
+<label><input type="checkbox" name="q3" value="Fear of failure"> Fear of failure</label>
+<label><input type="checkbox" name="q3" value="Pressure from others"> Pressure from others</label>
+<label><input type="checkbox" name="q3" value="Something else"> Something else</label>
+</div>
+
+<!-- Continue same pattern for all -->
+
+<!-- 4 -->
+<div class="question">
+<p><strong>4.</strong> Do you sometimes feel worried, restless, or unable to relax?</p>
+<label><input type="radio" name="q4" value="Yes" required> Yes</label>
+<label><input type="radio" name="q4" value="No"> No</label>
+</div>
+
+<!-- 5 -->
+<div class="question">
+<p><strong>5.</strong> Have there been days recently when you felt low?</p>
+<label><input type="radio" name="q5" value="Yes" required> Yes</label>
+<label><input type="radio" name="q5" value="No"> No</label>
+</div>
+
+<!-- 6 -->
+<div class="question">
+<p><strong>6.</strong> When these feelings come up, how easy is it to manage?</p>
+<label><input type="radio" name="q6" value="Easy" required> Easy</label>
+<label><input type="radio" name="q6" value="Somewhat hard"> Somewhat hard</label>
+<label><input type="radio" name="q6" value="Very hard"> Very hard</label>
+</div>
+
+<!-- 7 -->
+<div class="question">
+<p><strong>7.</strong> Do relationships leave you confused or hurt?</p>
+<label><input type="radio" name="q7" value="Yes" required> Yes</label>
+<label><input type="radio" name="q7" value="No"> No</label>
+</div>
+
+<!-- 8 -->
+<div class="question">
+<p><strong>8.</strong> Do you find it hard to express your feelings?</p>
+<label><input type="radio" name="q8" value="Yes" required> Yes</label>
+<label><input type="radio" name="q8" value="No"> No</label>
+</div>
+
+<!-- 9 -->
+<div class="question">
+<p><strong>9.</strong> Is there someone you wish understood you better?</p>
+<label><input type="radio" name="q9" value="Yes" required> Yes</label>
+<label><input type="radio" name="q9" value="No"> No</label>
+</div>
+
+<!-- 10 -->
+<div class="question">
+<p><strong>10.</strong> Do things at home affect your mood?</p>
+<label><input type="radio" name="q10" value="Yes" required> Yes</label>
+<label><input type="radio" name="q10" value="No"> No</label>
+</div>
+
+<!-- 11 -->
+<div class="question">
+<p><strong>11.</strong> Do you feel heard by your family?</p>
+<label><input type="radio" name="q11" value="Mostly" required> Mostly</label>
+<label><input type="radio" name="q11" value="Sometimes"> Sometimes</label>
+<label><input type="radio" name="q11" value="Rarely"> Rarely</label>
+</div>
+
+<!-- 12 -->
+<div class="question">
+<p><strong>12.</strong> Is there something about your family situation you wish to talk about?</p>
+<label><input type="radio" name="q12" value="Yes" required> Yes</label>
+<label><input type="radio" name="q12" value="No"> No</label>
+</div>
+
+<!-- 13 -->
+<div class="question">
+<p><strong>13.</strong> Do you feel anxious about your future?</p>
+<label><input type="radio" name="q13" value="Yes" required> Yes</label>
+<label><input type="radio" name="q13" value="No"> No</label>
+</div>
+
+<!-- 14 -->
+<div class="question">
+<p><strong>14.</strong> Do you feel pressure to choose a path?</p>
+<label><input type="radio" name="q14" value="Yes" required> Yes</label>
+<label><input type="radio" name="q14" value="No"> No</label>
+</div>
+
+<!-- 15 -->
+<div class="question">
+<p><strong>15.</strong> What worries you most?</p>
+<label><input type="checkbox" name="q15" value="Wrong choice"> Wrong choice</label>
+<label><input type="checkbox" name="q15" value="Expectations"> Expectations</label>
+<label><input type="checkbox" name="q15" value="Financial stability"> Financial stability</label>
+<label><input type="checkbox" name="q15" value="Not knowing interest"> Not knowing interest</label>
+</div>
+
+<!-- 16 -->
+<div class="question">
+<p><strong>16.</strong> How often do you feel confident?</p>
+<label><input type="radio" name="q16" value="Often" required> Often</label>
+<label><input type="radio" name="q16" value="Sometimes"> Sometimes</label>
+<label><input type="radio" name="q16" value="Rarely"> Rarely</label>
+</div>
+
+<!-- 17 -->
+<div class="question">
+<p><strong>17.</strong> Are you hard on yourself?</p>
+<label><input type="radio" name="q17" value="Yes" required> Yes</label>
+<label><input type="radio" name="q17" value="No"> No</label>
+</div>
+
+<!-- 18 -->
+<div class="question">
+<p><strong>18.</strong> One thing you wish you felt confident about?</p>
+<input type="text" name="q18" required>
+</div>
+
+<!-- 19 -->
+<div class="question">
+<p><strong>19.</strong> When stressed, what do you usually do?</p>
+<input type="text" name="q19" required>
+</div>
+
+<!-- 20 -->
+<div class="question">
+<p><strong>20.</strong> Is there someone you feel safe talking to?</p>
+<label><input type="radio" name="q20" value="Yes" required> Yes</label>
+<label><input type="radio" name="q20" value="No"> No</label>
+</div>
+
+<!-- 21 -->
+<div class="question">
+<p><strong>21.</strong> What support would help most?</p>
+<label><input type="checkbox" name="q21" value="Talking"> Talking</label>
+<label><input type="checkbox" name="q21" value="Advice"> Practical advice</label>
+<label><input type="checkbox" name="q21" value="Tools"> Stress tools</label>
+<label><input type="checkbox" name="q21" value="Being heard"> Just being heard</label>
+</div>
+
+<!-- 22 -->
+<div class="question">
+<p><strong>22.</strong> What made you use this platform today?</p>
+<input type="text" name="q22" required>
+</div>
+
+<!-- 23 -->
+<div class="question">
+<p><strong>23.</strong> What do you hope to gain from counselling?</p>
+<input type="text" name="q23" required>
+</div>
+
+<!-- 24 -->
+<div class="question">
+<p><strong>24.</strong> Anything you're nervous about regarding counselling?</p>
+<input type="text" name="q24" required>
+</div>
+
+<button type="submit" class="submit-btn">Submit Quiz</button>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

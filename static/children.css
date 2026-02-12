@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #eaf4f4, #f4f7ff);
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+/* Wrapper */
+.quiz-wrapper {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Card */
+.quiz-card {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+    animation: fadeIn 0.8s ease;
+}
+
+/* Heading */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #6c7a89;
+    font-size: 15px;
+}
+
+.subtitle span {
+    font-size: 13px;
+    color: #9aa6b2;
+}
+
+/* Question Block */
+.question {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 18px;
+    background: #f9fbff;
+    transition: 0.3s ease;
+}
+
+.question:hover {
+    background: #f1f6ff;
+}
+
+/* Number Circle */
+.number {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    background: #4a90e2;
+    color: white;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* Question Text */
+.question p {
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Options Layout */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Option Styling */
+.option {
+    position: relative;
+    cursor: pointer;
+}
+
+.option input {
+    display: none;
+}
+
+.option span {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: white;
+    border: 1px solid #dce3ec;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+/* Hover */
+.option span:hover {
+    background: #eaf3ff;
+    border-color: #4a90e2;
+}
+
+/* Selected */
+.option input:checked + span {
+    background: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
+    box-shadow: 0 5px 15px rgba(74,144,226,0.3);
+}
+
+/* Text Input */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #dce3ec;
+    transition: 0.3s;
+    font-family: 'Inter';
+}
+
+input[type="text"]:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74,144,226,0.15);
+    outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 18px;
+    border: none;
+    background: linear-gradient(135deg, #4a90e2, #6c9eff);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(74,144,226,0.3);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,11 +7,28 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
     background: #EDF4FA;
     color: #243A5E;
 }
 
+/* Sidebar Logo and Nav Items */
+.logo h1, .nav-item span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Headings and Stat Values */
+h2, h3, .stat-value, .feature-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+/* Button and Descriptions */
+.action-btn, .feature-card p, .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
 
 .sidebar {
     position: fixed;
